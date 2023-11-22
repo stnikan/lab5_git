@@ -108,19 +108,26 @@ int main(void)
 	uint8_t i;
 	uint8_t k = 0;
 	int8_t u[] = {12, -6, -24, -42, 60};
-	char str[] {'Y', '(', 'k', ')', ' ', '=', ' ', 'X'}
+	int8_t y = 0;
+	uint8_t T = 3;
+	char str[] = {'Y', '(', 'k', ')', ' ', '=', ' ', 'X'};
 	
     while (1) 
     {	
+		
 		LCD_cmd((1<<7) |64);
 		//my_f(1234);
-		for (i = 0; i++; i<8){
-		LCD_data(str[i]);}
-		
+		for (i = 0;i<8;i++){
+			if (str[i] == 'k'){my_f(k);}
+			else if (str[i] == 'X'){my_f(y);}
+			else{LCD_data(str[i]);}
+			}
+		y  =y + T*(3*y+u[k]/2-5);
 		
 		_delay_ms(3000);
 		LCD_cmd(1);
 		k = (k + 1)%6;
+		
 		//for (i = 0; i<5;i++){ 
 		//	LCD_cmd((1<<7) |64);
 		//	
