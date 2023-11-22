@@ -106,15 +106,21 @@ int main(void)
 	LCD_init();
 	
 	uint8_t i;
+	uint8_t k = 0;
 	int8_t u[] = {12, -6, -24, -42, 60};
- 
+	char str[] {'Y', '(', 'k', ')', ' ', '=', ' ', 'X'}
 	
     while (1) 
-    {
-		my_f(1234);
-		_delay_ms(1000);
-		LCD_cmd(1);
+    {	
+		LCD_cmd((1<<7) |64);
+		//my_f(1234);
+		for (i = 0; i++; i<8){
+		LCD_data(str[i]);}
 		
+		
+		_delay_ms(3000);
+		LCD_cmd(1);
+		k = (k + 1)%6;
 		//for (i = 0; i<5;i++){ 
 		//	LCD_cmd((1<<7) |64);
 		//	
