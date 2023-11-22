@@ -86,10 +86,10 @@ void my_f(int16_t a){
 	}
 	while (del >= 1){  //k = цифра моего числа
 		b = a/del;
-		if (b > 0 & flag ==0){
+		if (b > 0 && flag ==0){
 			flag = 1;
 		}
-		if (flag == 1){
+		if (flag == 1 || a == b){
 			s = c[b];
 			LCD_data(s); // написать символ
 
@@ -114,7 +114,7 @@ int main(void)
 	
     while (1) 
     {	
-		
+		if (k==0){y = 0;}
 		LCD_cmd((1<<7) |64);
 		//my_f(1234);
 		for (i = 0;i<8;i++){
